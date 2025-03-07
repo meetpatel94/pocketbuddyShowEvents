@@ -8,8 +8,8 @@
 </head>
 <body>
 <h1>Admin Dashboard</h1><br>
-<h3>Welcome, ${user.firstName } </h3><br><br>
-<a href="logout">Log Out</a><br>
+<h3>Welcome, ${user.firstName } </h3><br>
+<a href="logout">Log Out</a><br><br>
 <a href="newstate">Add New State</a>
 </body>
 </html>

@@ -109,7 +109,10 @@ public class SessionController {
 	public String updatePassword() {
 		return "Login";
 	}
-	
+	@GetMapping("home")
+	public String home() {
+		return "Home";
+	}
 
 }
 

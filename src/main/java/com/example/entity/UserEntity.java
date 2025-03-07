@@ -19,7 +19,7 @@ public class UserEntity {
 	private String email;
 	private String password;
 	private String contactNum;
-//	private String city;
+	private String city;
 	private String bornYear;
 	private String gender;
 	private String role;// member,security,chairman,admin
@@ -102,6 +102,14 @@ public class UserEntity {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 }
