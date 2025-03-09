@@ -70,7 +70,7 @@
               </div>
               <div class="input-group-text"><span class="bi bi-envelope-fill"></span></div>
             </div>
-            
+            ${error }
             <!--begin::Row-->
             <div class="row">
               <div class=" col-4 d-inline-flex align-items-center">
@@ -86,6 +86,7 @@
             </div>
             <!--end::Row-->
           </form><br>
+         
           <!-- /.social-auth-links -->
           <p class="mb-0">
             <a href="signup" class="text-center"> Register a new membership </a>

@@ -10,4 +10,8 @@ public class AdminController {
 	public  String admindashboard() {
 		return "AdminDashboard";
 	}
+    @GetMapping("listuser")
+	public  String listuser() {
+		return "ListUser";
+	}
 }

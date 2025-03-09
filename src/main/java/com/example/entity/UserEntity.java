@@ -23,6 +23,7 @@ public class UserEntity {
 	private String bornYear;
 	private String gender;
 	private String role;// member,security,chairman,admin
+	private String otp;
 
 	public Integer getUserId() {
 		return userId;
@@ -110,6 +111,14 @@ public class UserEntity {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
 	}
 
 }

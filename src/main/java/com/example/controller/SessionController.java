@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -60,8 +62,7 @@ public class SessionController {
 		System.out.println("Email: "+ email);
 		System.out.println("Password: "+password);
 		
-	 
-		java.util.Optional<UserEntity> op = repositoryUser.findByEmail(email);
+		Optional<UserEntity> op = repositoryUser.findByEmail(email);
 		//check data coming or not
 		if(op.isPresent()) {
 			
@@ -100,15 +101,56 @@ public class SessionController {
 		return "ForgetPassword";
 	}
 
+	//===> SEND OTP
 	@PostMapping("sendOtp")
-	public String sendOtp() {
-		return "ChangePassword";
+	public String sendOtp(String email, Model model) {
+		Optional<UserEntity> op = repositoryUser.findByEmail(email);
+		if(op.isEmpty()) {
+			
+			model.addAttribute("error", "Email Not Found");
+			return "ForgetPassword";
+		}else {
+			//--> email valid   //--> send mail otp
+			//--> otp generate 
+			String otp = "";
+			otp = (int) (Math.random() * 1000000  ) + ""; // 0 to 1
+			
+			UserEntity user = op.get();
+			user.setOtp(otp);
+			repositoryUser.save(user);
+			serviceMail.sendOtpForForgetPassword(email, user.getFirstName(), otp);
+			return "ChangePassword";
+		}
+		 		 
 	}
 
+	//=====>Update/Change Password
 	@PostMapping("updatepassword")
-	public String updatePassword() {
+	public String updatePassword(String email, String password, String otp, Model model) {
+		Optional<UserEntity>  op = repositoryUser.findByEmail(email);
+		
+		if(op.isEmpty()) {
+			model.addAttribute("error", "Invalid Data");
+			return "ChangePassword";
+		
+		}else  {
+			UserEntity user = op.get();
+			if(user.getOtp().equals(otp)) {
+				String encPwd = encoder.encode(password);
+				user.setPassword(encPwd);
+				user.setOtp("");
+				repositoryUser.save(user);
+				
+			}else {
+				model.addAttribute("error", "Invalid data");
+				return "ChangePassword";
+			}
+		}
+		model.addAttribute("msg", "Password Succesfully Updated");
 		return "Login";
 	}
+	
+	
 	@GetMapping("home")
 	public String home() {
 		return "Home";
