@@ -73,7 +73,7 @@
   	<!-- End Sidebar-->
 
   	<main id="main" class="main">
-
+       <div class="nen">
     	<div class="pagetitle">
       		<h1>New Role</h1>
       		<nav>
@@ -92,12 +92,12 @@
 				<input type="submit" value="Save Member">
 			</form>
     	</section>
-
+ </div>
 
   	</main><!-- End #main -->
 
   	<!-- ======= Footer ======= -->
- <%--  	<jsp:include page="AdminFooter.jsp"></jsp:include> --%>
+	<jsp:include page="AdminFooter.jsp"></jsp:include>
 
 	<jsp:include page="AdminJs.jsp"></jsp:include>
   	<!-- End Footer -->

@@ -52,6 +52,42 @@ keyframes resizeanim { 0%, to { opacity:0
 	direction: ltr !important;
 	user-select: none
 }
+/* Here Css Add */
+.header-nav .nav-profile{
+	color: #fff !important;
+}
+.nav-icon{
+	color: #000 !important;
+}
+.sidebar{
+	background: #353436 !important;
+}
+.sidebar-nav .nav-content a{
+	color: #ffffff !important;
+	background: #353436 !important;
+}
+.sidebar-nav .nav-link{
+	color: #ffffff !important;
+	background: #353436 !important;
+}
+#main{
+	color: #ffffff !important;
+	background: #d1d0d7 !important;
+}
+.bi-bell{
+	color: #fff !important;
+}
+.bi-chat-left-text{
+	color: #fff !important;
+}
+.toggle-sidebar-btn{
+	color: #fff !important;
+}
+.bi-search{
+	color: #fff !important;
+}
+
+/* Here end css */
 
 .apexcharts-canvas ::-webkit-scrollbar {
 	-webkit-appearance: none;

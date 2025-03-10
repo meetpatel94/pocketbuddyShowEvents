@@ -64,7 +64,7 @@
 										</thead>
 
 										<tbody>
-											<c:forEach items="${users}" var="u">
+											<c:forEach items="${users }" var="u">
 												<tr>
 													<td>${u.firstName}</td>
 													<td>${u.lastName}</td>
